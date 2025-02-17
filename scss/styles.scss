@@ -839,7 +839,15 @@ body {
             transform: translate(-50%, -50%);
             border: 1px solid #fff;
             cursor: pointer;
+            transition: border-color $time $transition, color $time $transition;
             background: transparent;
+
+            &:hover {
+                border-color: $orange;
+                &::before {
+                    color: $orange;
+                }
+            }
 
             &::before {
                 position: absolute;
@@ -1125,7 +1133,12 @@ body {
                 font-size: 14px;
                 line-height: 1.29;
                 letter-spacing: -.02em;
+                transition: color $time $transition;
                 color: #fff;
+
+                &:hover {
+                    color: $orange;
+                }
             }
         }
     }
@@ -1163,6 +1176,7 @@ body {
             }
         }
 
+
         a {
             font: {
                 size: 14px;
@@ -1171,7 +1185,12 @@ body {
 
             line-height: 1.14;
             letter-spacing: -.02em;
+            transition: color $time $transition;
             color: #fff;
+
+            &:hover {
+                color: $orange;
+            }
         }
     }
 
@@ -1203,6 +1222,7 @@ body {
         padding: 14px 18px;
         border-radius: 30px;
         border: 1.5px solid rgba(255, 255, 255, .15);
+        color: #fff;
         background: transparent;
 
         @include tablet {
