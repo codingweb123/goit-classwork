@@ -844,6 +844,7 @@ body {
 
             &:hover {
                 border-color: $orange;
+
                 &::before {
                     color: $orange;
                 }
@@ -888,12 +889,9 @@ body {
         }
 
         li:not(:first-child) {
-            margin-top: 18px;
-        }
-
-        li {
             position: relative;
             max-width: 291px;
+            margin-top: 18px;
 
             @include tablet {
                 max-width: 464px;
