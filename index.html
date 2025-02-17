@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Simply Chocolate, Lovely chocolate">
+    <meta name="description" content="Simply Chocolate, Lovely chocolate" />
     <title>Simply Chocolate</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -25,14 +25,14 @@
           </ul>
           <ul class="icons">
             <li>
-              <a href="#" class="icons-link">
+              <a href="#" class="icons-link" aria-label="Open instagram link">
                 <svg class="icon" width="24" height="24">
                   <use href="./images/icons.svg#icon-instagram"></use>
                 </svg>
               </a>
             </li>
             <li>
-              <a href="#" class="icons-link">
+              <a href="#" class="icons-link" aria-label="Open twitter link">
                 <svg class="icon" width="24" height="24">
                   <use href="./images/icons.svg#icon-twitter"></use>
                 </svg>
@@ -284,8 +284,9 @@
             how it&#8217;s
             <b>made?</b>
           </h2>
-          <ul class="content">
-            <div class="img">
+          <div class="content">
+            <ul class="img">
+              <li>
                 <picture>
                   <source
                     type="image/webp"
@@ -338,8 +339,12 @@
                     alt="chocolate Image"
                   />
                 </picture>
-                <button type="button" aria-label="Open chocolate videoclip"></button>
-            </div>
+                <button
+                  type="button"
+                  aria-label="Open chocolate videoclip"
+                ></button>
+              </li>
+            </ul>
             <ul class="list">
               <p>
                 Try our chocolates today and discover the perfect balance of
@@ -363,7 +368,7 @@
                 ice molds). Allow to cool and harden.
               </li>
             </ul>
-          </ul>
+          </div>
         </div>
       </section>
       <section class="section loved" id="chocolate">
@@ -581,6 +586,29 @@
         </form>
       </div>
     </div>
+    <script>
+      const s = window.outerWidth;
+      const p = window.devicePixelRatio;
+      let i = '';
+      if (s <= 767) {
+        i = p >= 2 ? './images/hero-phone@2x.webp' : './images/hero-phone.webp';
+      } else if (s >= 768 && s <= 1157) {
+        i =
+          p >= 2 ? './images/hero-tablet@2x.webp' : './images/hero-tablet.webp';
+      } else {
+        i = p >= 2 ? './images/hero@2x.webp' : './images/hero.webp';
+      }
+      let link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.imageSrcset = i;
+      link.fetchPriority = 'high';
+      link.onerror = () => {
+        link.imageSrcset = i.replace('.webp', '.jpg');
+        document.head.appendChild(link);
+      };
+      document.head.appendChild(link);
+    </script>
     <script defer>
       document.querySelector('.menu_open').onclick = e => {
         e.preventDefault();
