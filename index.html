@@ -609,8 +609,10 @@
       link.onerror = () => {
         link.imageSrcset = i.replace('.webp', '.jpg');
         document.head.appendChild(link);
+        document.querySelector(".hero").style.backgroundImage = `linear-gradient(rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.4)), image-set(url(".${i}"))`;
       };
       document.head.appendChild(link);
+      document.querySelector(".hero").style.backgroundImage = `linear-gradient(rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.4)), image-set(url(".${i}"))`;
     </script>
     <script defer>
       document.querySelector('.menu_open').onclick = e => {
