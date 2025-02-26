@@ -11,7 +11,8 @@ $time: 250ms;
 
 $computer: 1158px;
 $tablet: 768px;
-$mobile: 375px;
+$mobile: 320px;
+$mobileDesign: 375px;
 
 @function w($gap, $nums) {
     $width: calc((100% - $gap * ($nums - 1)) / $nums );

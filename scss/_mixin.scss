@@ -16,16 +16,20 @@
     }
 }
 
+@mixin mobileTwo {
+    @media screen and (min-width: $mobileTwo) {
+        @content;
+    }
+}
+
 @mixin resolution {
     @media (min-resolution: 2x) {
         @content;
     }
 }
 
-%resolution-s {
-    background-image: linear-gradient(rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.4)), image-set(url("../images/hero.jpg") type("image/jpeg") 1x, url("../images/hero.webp") type("image/webp") 1x);
-}
-
-%resolution-b {
-    background-image: linear-gradient(rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.4)), image-set(url("../images/hero@2x.jpg") type("image/jpeg") 2x, url("../images/hero@2x.webp") type("image/webp") 2x);
+@mixin crack {
+    @media screen and (min-width: $mobile) and (max-width: $mobileDesign) {
+        @content;
+    }
 }

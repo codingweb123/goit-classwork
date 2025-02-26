@@ -297,6 +297,13 @@ body {
         @include tablet {
             padding-top: 381px;
         }
+
+        @include crack {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .btn-outline {
@@ -562,6 +569,15 @@ body {
         }
     }
 
+    @include mobile {
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
     .subtitle {
         margin-top: 24px;
         font-size: 14px;
@@ -602,18 +618,27 @@ body {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            @include crack {
+                min-width: unset;
+                width: 100%;
+            }
+
+            min-width: 335px;
+
+            @include tablet {
+                min-width: 336px;
+            }
+
+            @include computer {
+                min-width: 270px;
+            }
+
             gap: 25px;
             padding: 28px;
             border-radius: 15px;
             overflow: hidden;
-
-            @include tablet {
-                flex-basis: calc((100% - 146px) / 2);
-            }
-
-            @include tablet {
-                flex-basis: w(19px, 3);
-            }
+            transition: background-color $time $transition;
 
             &:first-child {
                 background-color: $orange;
@@ -738,6 +763,7 @@ body {
 
             &:hover {
                 border: 1px solid #fff;
+                background-color: unset;
             }
 
             &:hover .overlay {
@@ -1213,6 +1239,10 @@ body {
         justify-content: center;
         align-items: center;
         gap: 8px;
+
+        @include crack {
+            flex-wrap: wrap;
+        }
     }
 
     input {
